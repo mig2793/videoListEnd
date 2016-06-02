@@ -1,0 +1,35 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='google', value='notranslate')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no')
+    meta(name='mobile-web-app-capable', content='yes')
+    meta(name='apple-mobile-web-app-capable', content='yes')
+    meta(name='apple-mobile-web-app-status-bar-style', content='black')
+    link(rel='shortcut icon', href='img/favicon.ico', type='image/x-icon')
+    link(rel='icon', href='img/favicon.ico', type='image/x-icon')
+    title!= titulo
+  body
+    header
+      #titulo #{usuario}
+    br
+    div
+        iframe(width="560" height="315" src="https://www.youtube.com/embed/9nX8lNh5LRQ" frameborder="0" allowfullscreen='allowfullscreen')
+    div
+        form#form(action='', method='')
+            div#errorMsg(align='center')
+            !=error
+            textarea#send-comment(type='text',placeholder='Comentario', name='comentario')
+    div#comentarios
+        div#comentarios
+           for result in data
+                h2 #{result.nombre}
+                br
+                span #{result.comentario}
+    div(align='center')
+        a(href='/logout') Cerrar sesión
+    link(rel='stylesheet', type='text/css', href='css/estilos.css')
+    script(src='js/sweet-alert.js')
+    script(src='js/jquery-1.11.3.min.js')
+    script(src='js/comentariosVideo.js')
